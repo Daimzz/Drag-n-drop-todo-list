@@ -84,6 +84,7 @@
 
 .draggable-wrapper {
     position: relative;
+
     transition: opacity .3s ease-in-out;
 }
 
@@ -96,18 +97,22 @@
 .draggable {
     position: absolute;
     min-width: 200px;
+    max-width: 400px;
+    max-height: 300px;
+    white-space: break-spaces;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
     cursor: pointer;
     box-shadow: 0px 0px 7px #c5c1c1;
     border-radius: 8px;
     color: #1a1a1a;
-    padding: 1em 1.3em;
+    padding: 1em 2em 1em 1.3em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     background-color: #d59044;
     transition: border-color 0.25s;
     user-select: none;
-
 }
 
 .btn-close {
@@ -121,7 +126,6 @@
     border: none;
     cursor: pointer;
     transition: opacity .3s ease-in-out;
-
 }
 
 .btn-check {

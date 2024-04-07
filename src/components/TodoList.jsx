@@ -10,7 +10,7 @@ import { BtnCheck } from "./BtnCheck.jsx";
  */
 export const TodoList = ({ items, setItems }) => {
   return (
-    <div>
+    <div className={"todo-wrapper"}>
       {items.length > 0 &&
         items.map((item) => {
           return (
@@ -18,7 +18,7 @@ export const TodoList = ({ items, setItems }) => {
               key={item.id}
               positionOffset={item.position}
               defaultPosition={item.defaultPosition}
-              grid={[24, 12]}
+              grid={[1, 1]}
               scale={1}
             >
               <div className={"draggable-wrapper"}>
@@ -30,7 +30,7 @@ export const TodoList = ({ items, setItems }) => {
                       ? {
                           backgroundColor: item.color,
                           textDecoration: "line-through",
-                          color: "#cbc1c1",
+                          color: "#e8e4e4",
                         }
                       : {
                           backgroundColor: item.color,
@@ -39,6 +39,7 @@ export const TodoList = ({ items, setItems }) => {
                   }
                 >
                   {item.text}
+
                   <button
                     className={"btn-close"}
                     onClick={() =>
