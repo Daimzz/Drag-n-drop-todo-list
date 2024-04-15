@@ -9,15 +9,24 @@ import { BtnCheck } from "./BtnCheck.jsx";
  * @returns {JSX.Element} Список перетаскиваемых элементов.
  */
 export const TodoList = ({ items, setItems }) => {
+  //После перезагрузки страницы координаты х и у обновляются
+  const updatePosition = (data, index) => {
+    let newItems = [...items];
+    newItems[index].defaultPosition = { x: data.x, y: data.y };
+    setItems((_) => newItems);
+  };
   return (
     <div className={"todo-wrapper"}>
       {items.length > 0 &&
-        items.map((item) => {
+        items.map((item, index) => {
           return (
             <Draggable
               key={item.id}
               positionOffset={item.position}
               defaultPosition={item.defaultPosition}
+              onStop={(_, data) => {
+                updatePosition(data, index);
+              }}
               grid={[1, 1]}
               scale={1}
             >
